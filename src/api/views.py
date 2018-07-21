@@ -11,3 +11,9 @@ class CreateView(generics.ListCreateAPIView):
     def perform_create(self, serializer):
         """Saves the post data when creating a new joke category"""
         serializer.save()
+
+
+class DetailsView(generics.RetrieveUpdateDestroyAPIView):
+    """Defines the GET, PUT and DELETE request behaviour of our API"""
+    queryset = JokeCategory.objects.all()
+    serializer_class = JokeCategorySerializer
